@@ -4,12 +4,19 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "clean": "powershell -Command \"Remove-Item -Recurse -Force dist\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start:nodemon": "npm run clean & tsc & nodemon dist/server.js",
+    "start": "npm run clean & tsc & node dist/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20",
+    "@types/uuid": "^9.0.8",
+    "typescript": "^5.3.3"
   }
 }
